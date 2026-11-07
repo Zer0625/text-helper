@@ -1,17 +1,18 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#11222C" />
-    <title>Text Helper</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <main class="app">
-      <h1>Text Helper</h1>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#11222C">
+  <title>Text Helper</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <h1>Text Helper</h1>
 
-      <section class="panel" aria-label="Text editor">
+    <section class="editor" aria-label="Text editor">
+      <div class="field-block">
         <label class="label" for="textInput">Text</label>
         <input
           id="textInput"
@@ -22,125 +23,63 @@
           placeholder="Type here"
           autocomplete="off"
           spellcheck="false"
-        />
+        >
+      </div>
 
+      <div class="field-block">
         <div class="label">Style</div>
         <div class="mode-buttons" role="group" aria-label="Color style">
-          <button
-            class="mode-button active"
-            type="button"
-            data-mode="solid"
-            aria-pressed="true"
-          >
-            Solid
-          </button>
-          <button
-            class="mode-button"
-            type="button"
-            data-mode="gradient"
-            aria-pressed="false"
-          >
-            Gradient
-          </button>
-          <button
-            class="mode-button"
-            type="button"
-            data-mode="custom"
-            aria-pressed="false"
-          >
-            Per letter
-          </button>
+          <button class="mode-button active" type="button" data-mode="solid" aria-pressed="true">Solid</button>
+          <button class="mode-button" type="button" data-mode="gradient" aria-pressed="false">Gradient</button>
+          <button class="mode-button" type="button" data-mode="custom" aria-pressed="false">Per letter</button>
         </div>
+      </div>
 
-        <div class="colors">
-          <div class="color-field">
-            <label class="label" for="hex1">HEX 1</label>
-            <div class="color-inputs">
-              <input
-                id="picker1"
-                class="color-picker"
-                type="color"
-                value="#ff3838"
-                aria-label="HEX 1 color picker"
-              />
-              <input
-                id="hex1"
-                class="hex-input"
-                type="text"
-                value="#FF3838"
-                maxlength="7"
-                spellcheck="false"
-                aria-label="HEX 1 value"
-              />
-            </div>
-          </div>
-          <div class="color-field">
-            <label class="label" for="hex2">HEX 2</label>
-            <div class="color-inputs">
-              <input
-                id="picker2"
-                class="color-picker"
-                type="color"
-                value="#35c8e8"
-                aria-label="HEX 2 color picker"
-              />
-              <input
-                id="hex2"
-                class="hex-input"
-                type="text"
-                value="#35C8E8"
-                maxlength="7"
-                spellcheck="false"
-                aria-label="HEX 2 value"
-              />
-            </div>
+      <div class="colors">
+        <div class="color-field">
+          <label class="label" for="hex1">HEX 1</label>
+          <div class="color-inputs">
+            <input id="picker1" class="color-picker" type="color" value="#ff3838" aria-label="HEX 1 color picker">
+            <input id="hex1" class="hex-input" type="text" value="#FF3838" maxlength="7" spellcheck="false" aria-label="HEX 1 value">
           </div>
         </div>
-
-        <div id="letterControls" class="letter-controls" hidden>
-          <div class="letter-heading">
-            <span class="label">Letter colors</span>
-            <div class="letter-actions">
-              <button id="applyGradient" class="small-button" type="button">
-                Apply gradient
-              </button>
-              <button id="applyFirst" class="small-button" type="button">
-                Set all to HEX 1
-              </button>
-            </div>
-          </div>
-          <div id="letterList" class="letter-list"></div>
-        </div>
-
-        <div class="preview-box">
-          <div class="label">Preview</div>
-          <div class="preview-line">
-            <span class="brackets">«</span>
-            <span id="preview" class="preview-text">E=MouseC²</span>
-            <span class="brackets">»</span>
+        <div class="color-field">
+          <label class="label" for="hex2">HEX 2</label>
+          <div class="color-inputs">
+            <input id="picker2" class="color-picker" type="color" value="#35c8e8" aria-label="HEX 2 color picker">
+            <input id="hex2" class="hex-input" type="text" value="#35C8E8" maxlength="7" spellcheck="false" aria-label="HEX 2 value">
           </div>
         </div>
+      </div>
 
-        <div class="output-heading">
-          <label class="label" for="codeOutput">Code</label>
-          <button id="copyButton" class="copy-button" type="button">
-            Copy
-          </button>
+      <div id="letterControls" class="letter-controls" hidden>
+        <div class="letter-heading">
+          <span class="label">Letter colors</span>
+          <div class="letter-actions">
+            <button id="applyGradient" class="small-button" type="button">Apply gradient</button>
+            <button id="applyFirst" class="small-button" type="button">Set all to HEX 1</button>
+          </div>
         </div>
-        <textarea
-          id="codeOutput"
-          class="code-output"
-          rows="3"
-          readonly
-          spellcheck="false"
-          aria-label="Generated code"
-        ></textarea>
-        <p id="status" class="status" aria-live="polite"></p>
-        <p class="note">
-          Gradients are generated letter by letter
-        </p>
-      </section>
-    </main>
-    <script src="app.js"></script>
-  </body>
+        <div id="letterList" class="letter-list"></div>
+      </div>
+
+      <div class="preview">
+        <div class="label">Preview</div>
+        <div class="preview-line">
+          <span class="brackets">«</span>
+          <span id="preview" class="preview-text">E=MouseC²</span>
+          <span class="brackets">»</span>
+        </div>
+      </div>
+
+      <div class="output-heading">
+        <label class="label" for="codeOutput">Code</label>
+        <button id="copyButton" class="copy-button" type="button">Copy</button>
+      </div>
+      <textarea id="codeOutput" class="code-output" rows="3" readonly spellcheck="false" aria-label="Generated code"></textarea>
+      <p id="status" class="status" aria-live="polite"></p>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
 </html>

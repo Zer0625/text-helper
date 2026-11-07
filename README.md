@@ -1,28 +1,26 @@
 # Text Helper
 
-A simple text color editor with solid colors, gradients, and per-letter customization.
+A small browser-based editor for solid text colors, two-color gradients, and per-letter colors.
 
-## Run on Windows
+## Run locally
 
 1. Extract the ZIP file.
-2. Open `index.html` in Chrome, Edge, or Firefox.
-3. Enter your text and choose **Solid**, **Gradient**, or **Per letter**.
-4. Adjust HEX 1 and HEX 2. In **Per letter** mode, you can edit each character or use the gradient as a starting point.
-5. Click **Copy** to copy the generated code.
+2. Open `index.html` in a browser.
+3. Enter text and choose **Solid**, **Gradient**, or **Per letter**.
+4. Set the HEX colors. In **Per letter** mode, edit each character or apply a gradient first.
+5. Press **Copy** to copy the generated markup.
 
-No Node.js, installation, or local server is required.
+No installation, Node.js, or local server is required.
 
 ## Files
 
-- `index.html`: page interface.
-- `styles.css`: page styles.
-- `app.js`: preview and code generation.
+- `index.html` — page structure.
+- `styles.css` — layout and colors.
+- `app.js` — preview, color interpolation, and code generation.
 
-## Page colors
+## Colors
 
 - Background: `#11222C`
-- Panel: `#18333E`
+- Input surface: `#18333E`
 
-## Generated format
-
-The editor generates one `<font color='#RRGGBB'>` tag per character. A gradient is simulated by assigning a different color to each letter. Compatibility with the title displayed above a mouse in E=MouseC² must be tested in the game.
+The output uses `<font color='#RRGGBB'>` tags. A gradient is represented by assigning a different HEX color to each character. Compatibility with the title displayed above a mouse in MiceForce has not been independently confirmed.
